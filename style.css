@@ -3,11 +3,37 @@ html {
     margin: 0;
 }
 
-body {
-    margin: 0;
-}
-
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.main-content, .sidebar, .header {
+    border: 1px solid red;
+}
+
+.content {
+    height: 100%;
+
+    display: grid;
+    grid-template: 1fr 5fr / 1fr 5fr;
+    grid-template-areas: 
+    "sidebar header"
+    "sidebar main-content";
+}
+
+.sidebar{
+    grid-area: sidebar;
+}
+
+.header{
+    grid-area: header;
+}
+
+.main-content {
+    grid-area: main-content;
+}

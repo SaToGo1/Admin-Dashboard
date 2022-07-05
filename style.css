@@ -20,7 +20,7 @@ body {
     height: 100%;
 
     display: grid;
-    grid-template: 1fr 5fr / 1fr 5fr;
+    grid-template: 170px 5fr / 1fr 5fr; /* 170 -> size of header*/
     grid-template-areas: 
     "sidebar header"
     "sidebar main-content";
@@ -97,8 +97,60 @@ body {
    ####################### */
 .header{
     grid-area: header;
+
+    display: grid;
+    grid-template-rows: 70px 100px;
 }
 
+.header__row {
+    border: 1px solid blue;
+}
+
+/*  /////
+  ROW 1
+    ///// */ 
+
+.header__row1 {
+    display: grid;
+
+    grid-template-columns: 20px 40px minmax(200px, 1000px) minmax(100px, 2000px) 40px 60px 150px;
+    grid-template-areas: ". searchicon searchbar . bell profile username";
+    align-items: center;
+}
+
+.header-row1__icon {
+    width: 20px;
+}
+.header-row1__icon--search{
+    grid-area: searchicon;
+}
+
+.header-row1__icon--bell{
+    grid-area: bell;
+}
+
+.header-row1__profile {
+    border: 1px solid blueviolet;
+    width: 50px; 
+    border-radius: 50%;
+
+    grid-area: profile;
+}
+
+.header__row1 input{
+    width: auto;
+    height: 33px;
+    padding: 5px 20px;
+    border-radius: 100px;
+
+    grid-area: searchbar;
+}
+
+.header-row1__username {
+    font-size: 1em;
+
+    grid-area: username;
+}
 
 /* #######################
         Main Content

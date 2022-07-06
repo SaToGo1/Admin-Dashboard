@@ -113,8 +113,9 @@ body {
 .header__row1 {
     display: grid;
 
-    grid-template-columns: 20px 40px minmax(200px, 1000px) minmax(100px, 2000px) 40px 60px 150px;
-    grid-template-areas: ". searchicon searchbar . bell profile username";
+    grid-template-columns: /*spaced a way that the size corresponds to the name of the gridarea.*/ 
+                          20px 40px        minmax(100px, 1000px) minmax(50px, 2000px)  40px  60px     150px;
+    grid-template-areas: ".    searchicon  searchbar             .                     bell  profile  username";
     align-items: center;
 }
 
@@ -152,6 +153,65 @@ body {
     grid-area: username;
 }
 
+/*  /////
+  ROW 2
+    ///// */
+
+.header__row2 {
+    display: grid;
+    grid-template-columns: /*spaced a way that the size corresponds to the name of the gridarea.*/ 
+                          20px 100px         minmax(100px, 300px) minmax(100px, 1000px) minmax(110px, 150px) minmax(110px, 150px) minmax(110px, 150px) minmax(20px, 100px);
+    grid-template-areas: ".    profile-image greetings            .                     button-new           button-upload        button-share         .";
+
+    align-items: center;
+}
+
+.header-row2__profile {
+    border: 1px solid blueviolet;
+    width: 80px; 
+    border-radius: 50%;
+
+    grid-area: profile-image;
+}
+    
+.header-row2__greet {
+    grid-area: greetings;
+
+    display: flex;
+    flex-direction: column;
+
+}
+    
+.header-greet__username {
+    font-size: 1.7em;
+    margin: 0;
+}
+    
+.header-greet__hi-there {
+    font-size: 0.8em;
+    margin: 0;
+    margin-bottom: 10px;
+}
+    
+.header-row2__button {
+    width: 100px;
+    height: 33px;
+    margin-right: 50px;
+    border-radius: 20px;
+}
+
+.header-row2__button--new {
+    grid-area: button-new;
+}
+
+.header-row2__button--upload {
+    grid-area: button-upload;
+}
+
+.header-row2__button--share {
+    grid-area: button-share;
+}
+    
 /* #######################
         Main Content
    ####################### */

@@ -28,7 +28,9 @@ body {
 
 
 /* #######################
+   #######################
         Sidebar
+   #######################
    ####################### */
 .sidebar{
     grid-area: sidebar;
@@ -93,17 +95,15 @@ body {
 }
 
 /* #######################
+   #######################
         Header
+   #######################        
    ####################### */
 .header{
     grid-area: header;
 
     display: grid;
     grid-template-rows: 70px 100px;
-}
-
-.header__row {
-    border: 1px solid blue;
 }
 
 /*  /////
@@ -153,9 +153,9 @@ body {
     grid-area: username;
 }
 
-/*  /////
+/*  //////////////
   ROW 2
-    ///// */
+    ////////////// */
 
 .header__row2 {
     display: grid;
@@ -213,8 +213,136 @@ body {
 }
     
 /* #######################
+   #######################
         Main Content
+   #######################
    ####################### */
 .main-content {
     grid-area: main-content;
+
+    display: grid;
+    grid-template-columns: minmax(500px, 4fr) minmax(250px, 2fr);
+}
+
+.main-content__projects,
+.main-content__announce-trending {
+    border: 1px solid purple;
+}
+
+/*  //////////////
+  Anouncement and treding
+    ////////////// */
+
+.main-content__announce-trending{
+    display: grid;
+    grid-template-columns: 5fr 200fr 20fr;
+    grid-template-rows: 20px minmax(300px, 1fr) minmax(300px, 1fr) 20px;
+    grid-template-areas:
+    ". . ."
+    ". announce ."
+    ". trending ."
+    ". . .";
+    gap: 10px;
+}
+
+
+.main-content__announce {
+    grid-area: announce;
+
+    display: flex;          
+    flex-direction: column; 
+}
+
+.announce__title {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    font-size: 1.3em;
+}
+.announce__card{
+    margin: 5px 10px;
+    font-size: 1em;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.announce-card__section{
+
+}
+
+.line {
+    margin: 10px;
+    border: 1px solid #606060;
+}
+.announce-card-section__title {
+    margin: 0;
+}
+
+.announce-card-section__text {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.main-content__trending {
+    grid-area: trending;
+
+    display: flex;          
+    flex-direction: column;
+}
+
+.trending__title {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    font-size: 1.3em;
+}
+
+.trending__card{
+    margin: 5px 10px;
+    font-size: 1em;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.trending-card__section {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trending-card-section__profile {
+    border: 1px solid blueviolet;
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+
+    grid-area: profile;
+}
+
+.trending-card-section__nick{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nickreference {
+    margin: 0;
+}
+
+.nickname {
+    margin: 0;
+}
+/*  //////////////
+  Projects
+    ////////////// */
+
+.projects__cards {
+    border: 1px solid blue;
 }

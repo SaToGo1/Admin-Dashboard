@@ -1,15 +1,26 @@
 :root {
+    /*same variable for sidebar and left project card */
     --color-sidebar: #0AF;
     --color-main: #EEE;
     --color-header: #FFF;
     --color-announce: #FFF;
     --color-trending: #FFF;
     --color-cards: #FFF;
+
+    --color-line-announce: #606060;
+
+    --color-button-background: #FFF;
+    --color-button-letters: #0AF;
+    --color-button-border: #0AF;
+    --color-button-active: #06F;
+
+    --color-searchbar: #EEE;
 }
 
 html {
     box-sizing: border-box;
-    margin: 0;
+
+    font-family: 'Roboto', sans-serif, Georgia;
 }
 
 *, *:before, *:after {
@@ -46,6 +57,11 @@ body {
     grid-area: sidebar;
 
     background-color: var(--color-sidebar);
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    max-height: 100vh;
 }
 
 .sidebar-container{
@@ -82,6 +98,9 @@ body {
     align-items: center;
 }
 
+.sidebar-menu__item:hover{
+    text-decoration: underline;
+}
 
 .sidebar__configuration{
     /* border: 1px solid blue; */
@@ -98,12 +117,25 @@ body {
     align-items: center;
 }
 
+.sidebar-configuration__item:hover{
+    text-decoration: underline;
+}
+
 .sidebar__icon{
     width: 10px;
+    cursor: pointer;
 }
 
 .sidebar-title__icon {
     width: 30px;
+}
+
+.sidebar-title__icon:hover{
+    text-decoration: underline;
+}
+
+.sidebar__text {
+    cursor: pointer;
 }
 
 /* #######################
@@ -128,7 +160,7 @@ body {
     display: grid;
 
     grid-template-columns: /*spaced a way that the size corresponds to the name of the gridarea.*/ 
-                          20px 40px        minmax(100px, 1000px) minmax(50px, 2000px)  40px  60px     150px;
+                          20px 40px        minmax(100px, 1500px) minmax(50px, 400px)  40px  60px     150px;
     grid-template-areas: ".    searchicon  searchbar             .                     bell  profile  username";
     align-items: center;
 }
@@ -136,12 +168,15 @@ body {
 .header-row1__icon {
     width: 20px;
 }
+
 .header-row1__icon--search{
     grid-area: searchicon;
+    cursor: pointer;
 }
 
 .header-row1__icon--bell{
     grid-area: bell;
+    cursor: pointer;
 }
 
 .header-row1__profile {
@@ -156,7 +191,11 @@ body {
     width: auto;
     height: 33px;
     padding: 5px 20px;
+
+    border: none;
     border-radius: 100px;
+
+    background-color: var(--color-searchbar);
 
     grid-area: searchbar;
 }
@@ -208,10 +247,28 @@ body {
 }
     
 .header-row2__button {
+    font-size: 16px;
+    font-weight: bold;
     width: 100px;
     height: 33px;
     margin-right: 50px;
+
+    color: var(--color-button-letters);
+    background-color: var(--color-button-background);
+    border: none;
     border-radius: 20px;
+    border: 2px solid var(--color-button-border);
+
+    cursor: pointer;
+}
+
+.header-row2__button:hover {
+    background-color: var(--color-button-letters);
+    color: var(--color-button-background);
+}
+
+.header-row2__button:active {
+    background-color: var(--color-button-active);
 }
 
 .header-row2__button--new {
@@ -288,13 +345,10 @@ body {
     justify-content: space-around;
 }
 
-.announce-card__section{
-
-}
 
 .line {
     margin: 10px;
-    border: 1px solid #606060;
+    border: 1px solid var(--color-line-announce);
 }
 .announce-card-section__title {
     margin: 0;
@@ -320,6 +374,7 @@ body {
 .trending__title {
     margin: 0;
     padding: 0;
+    margin-top: 30px;
     margin-left: 10px;
     font-size: 1.3em;
 
@@ -387,6 +442,24 @@ body {
 
 .projects__cards {
     padding: 15px;
-    border-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
     background-color: var(--color-cards);
+
+    box-shadow: -5px 0px var(--color-sidebar);
+}
+
+.card__icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+/* to move all the icons to the right */
+.card__icon:first-child{
+    margin-left: auto;
+}
+
+.card__icon-container {
+    display: flex;
+    gap: 10px;
 }

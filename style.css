@@ -1,3 +1,12 @@
+:root {
+    --color-sidebar: #0AF;
+    --color-main: #EEE;
+    --color-header: #FFF;
+    --color-announce: #FFF;
+    --color-trending: #FFF;
+    --color-cards: #FFF;
+}
+
 html {
     box-sizing: border-box;
     margin: 0;
@@ -12,18 +21,19 @@ body {
     height: 100vh;
 }
 
-.main-content, .sidebar, .header {
-    border: 1px solid red;
-}
+
 
 .content {
     height: 100%;
+    overflow: auto;
 
     display: grid;
     grid-template: 170px 5fr / 1fr 5fr; /* 170 -> size of header*/
     grid-template-areas: 
     "sidebar header"
     "sidebar main-content";
+
+    min-height: 0;
 }
 
 
@@ -35,12 +45,14 @@ body {
 .sidebar{
     grid-area: sidebar;
 
-    /*I would rather do this with Flexbox because the content of the
-    index menu can determine the size easily, and would be more easy
-    to update, but for practice reasons i will use grid.*/
+    background-color: var(--color-sidebar);
+}
+
+.sidebar-container{
     display: grid;
     grid-template-rows: 50px 1fr 1fr;
     gap: 10px;
+
 }
 
 .sidebar__title {
@@ -104,6 +116,8 @@ body {
 
     display: grid;
     grid-template-rows: 70px 100px;
+
+    background-color: var(--color-header);
 }
 
 /*  /////
@@ -218,47 +232,52 @@ body {
    #######################
    ####################### */
 .main-content {
+    padding: 20px;
     grid-area: main-content;
 
     display: grid;
     grid-template-columns: minmax(500px, 4fr) minmax(250px, 2fr);
-}
-
-.main-content__projects,
-.main-content__announce-trending {
-    border: 1px solid purple;
+    background-color: var(--color-main);
 }
 
 /*  //////////////
   Anouncement and treding
     ////////////// */
 
-.main-content__announce-trending{
+.main-content__announce-trending-conteiner{
     display: grid;
-    grid-template-columns: 5fr 200fr 20fr;
-    grid-template-rows: 20px minmax(300px, 1fr) minmax(300px, 1fr) 20px;
+    grid-template-columns: 5fr 200fr 5fr;
+    grid-template-rows: 20px minmax(300px, 1fr) 20px minmax(300px, 1fr) 20px;
     grid-template-areas:
-    ". . ."
+    ". announce-title ."
     ". announce ."
+    ". trending-title ."
     ". trending ."
     ". . .";
     gap: 10px;
 }
-
 
 .main-content__announce {
     grid-area: announce;
 
     display: flex;          
     flex-direction: column; 
+
+    background-color: var(--color-announce);
+
+    padding: 15px;
+    border-radius: 10%;
 }
 
 .announce__title {
     margin: 0;
     padding: 0;
     margin-left: 10px;
+    margin-bottom: 10px;
     font-size: 1.3em;
+    grid-area: announce-title;
 }
+
 .announce__card{
     margin: 5px 10px;
     font-size: 1em;
@@ -291,6 +310,11 @@ body {
 
     display: flex;          
     flex-direction: column;
+
+    background-color: var(--color-announce);
+
+    padding: 15px;
+    border-radius: 10%;
 }
 
 .trending__title {
@@ -298,6 +322,8 @@ body {
     padding: 0;
     margin-left: 10px;
     font-size: 1.3em;
+
+    grid-area: trending-title;
 }
 
 .trending__card{
@@ -343,6 +369,24 @@ body {
   Projects
     ////////////// */
 
+.main-content__projects{
+    padding-right: 20px;
+
+    display: grid;
+    grid-template-rows: 10px 1fr;
+    gap: 10px;
+
+}
+
+.main-content-projects__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
 .projects__cards {
-    border: 1px solid blue;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--color-cards);
 }

@@ -98,6 +98,10 @@ body {
     align-items: center;
 }
 
+.sidebar-menu__item:active{
+    font-size: 20px;
+}
+
 .sidebar-menu__item:hover{
     text-decoration: underline;
 }
@@ -117,17 +121,21 @@ body {
     align-items: center;
 }
 
+.sidebar-configuration__item:active{
+    font-size: 20px;
+}
+
 .sidebar-configuration__item:hover{
     text-decoration: underline;
 }
 
 .sidebar__icon{
-    width: 10px;
+    width: 20px;
     cursor: pointer;
 }
 
 .sidebar-title__icon {
-    width: 30px;
+    width: 40px;
 }
 
 .sidebar-title__icon:hover{
@@ -166,7 +174,7 @@ body {
 }
 
 .header-row1__icon {
-    width: 20px;
+    width: 30px;
 }
 
 .header-row1__icon--search{
@@ -174,13 +182,20 @@ body {
     cursor: pointer;
 }
 
+.header-row1__icon--search:active{
+    width: 35px;
+}
+
 .header-row1__icon--bell{
     grid-area: bell;
     cursor: pointer;
 }
 
+.header-row1__icon--bell:active{
+    width: 35px;
+}
+
 .header-row1__profile {
-    border: 1px solid blueviolet;
     width: 50px; 
     border-radius: 50%;
 
@@ -220,7 +235,6 @@ body {
 }
 
 .header-row2__profile {
-    border: 1px solid blueviolet;
     width: 80px; 
     border-radius: 50%;
 
@@ -352,6 +366,7 @@ body {
 }
 .announce-card-section__title {
     margin: 0;
+    font-weight: bold;
 }
 
 .announce-card-section__text {
@@ -399,7 +414,6 @@ body {
 }
 
 .trending-card-section__profile {
-    border: 1px solid blueviolet;
     width: 50px; 
     height: 50px;
     border-radius: 50%;
@@ -462,4 +476,16 @@ body {
 .card__icon-container {
     display: flex;
     gap: 10px;
+}
+
+.card__icon-bookmark:active{
+    background: url(./img/bookmark-fill.svg) no-repeat;
+}
+
+.card__icon-fav:active {
+    background: url(./img/fav-fill.svg) no-repeat;
+}
+
+.card__icon-share:active {
+    background: url(./img/share-fill.svg) no-repeat;
 }
